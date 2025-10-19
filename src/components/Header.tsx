@@ -75,7 +75,7 @@ export default function Header({ currentPage = 'home', onNavigate }: HeaderProps
               className="flex items-center cursor-pointer"
               onClick={() => handleNavigation('home')}
             >
-              <div className="relative h-16 w-[200px]">
+              <div className="relative h-8 w-[200px]">
                 <div className="h-full w-full bg-gradient-to-r from-[#FF4DA6] to-[#7C3AED]"
                   style={{
                     WebkitMaskImage: "url('/dffdf.png')",
