@@ -83,7 +83,7 @@ export default function Header({ currentPage = 'home', onNavigate }: HeaderProps
             </div>
 
             {/* Action Buttons */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-right space-x-3">
               {user ? (
                 <button
                   onClick={handleAuthAction}
