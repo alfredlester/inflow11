@@ -87,7 +87,7 @@ export default function Header({ currentPage = 'home', onNavigate }: HeaderProps
               {user ? (
                 <button
                   onClick={handleAuthAction}
-                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-5 py-2 rounded-full font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-pink-500/25"
+                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-8 py-2 rounded-full font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-pink-500/25"
                 >
                   Sign Out
                 </button>
