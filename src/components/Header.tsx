@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -9,6 +10,8 @@ interface HeaderProps {
 
 export default function Header({ currentPage = 'home', onNavigate }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const { user, signOut } = useAuth();
 
   const navItems = [
@@ -18,6 +21,26 @@ export default function Header({ currentPage = 'home', onNavigate }: HeaderProps
     { name: 'FAQs', key: 'faqs' },
     { name: 'Contact', key: 'contact' },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Determine scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and past threshold
+        setIsScrolled(true);
+      } else if (currentScrollY < lastScrollY || currentScrollY <= 100) {
+        // Scrolling up or near top
+        setIsScrolled(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   const handleNavigation = (page: string) => {
     if (onNavigate) {
@@ -42,10 +65,12 @@ export default function Header({ currentPage = 'home', onNavigate }: HeaderProps
   return (
     <>
       {/* Dynamic Island Style Header */}
-      <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
-        <nav className="bg-white rounded-full px-32 py-3 shadow-2xl border border-gray-100/50 backdrop-blur-sm max-w-5xl w-full mx-4">
+      <header className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ease-in-out ${
+        isScrolled ? 'opacity-30 -translate-y-2' : 'opacity-100 translate-y-0'
+      }`}>
+        <nav className="bg-white rounded-full px-12 py-3 shadow-2xl border border-gray-100/50 backdrop-blur-sm max-w-5xl w-full mx-4">
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center justify-between">
             {/* Logo */}
             <div 
               className="flex items-center cursor-pointer"
@@ -68,7 +93,7 @@ export default function Header({ currentPage = 'home', onNavigate }: HeaderProps
             </div>
 
             {/* Navigation Links */}
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-6 flex-1 justify-center">
               {navItems.map((item) => (
                 <button
                   key={item.key}
@@ -83,7 +108,7 @@ export default function Header({ currentPage = 'home', onNavigate }: HeaderProps
             </div>
 
             {/* Action Buttons */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3 flex-shrink-0">
               {user ? (
                 <button
                   onClick={handleAuthAction}
