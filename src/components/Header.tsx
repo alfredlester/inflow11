@@ -64,13 +64,12 @@ export default function Header({ currentPage = 'home', onNavigate }: HeaderProps
   return (
     <>
       {/* Dynamic Island Style Header */}
-      <header className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ease-in
-      ${
+      <header className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ease-in ${
         isScrolled ? 'opacity-0 -translate-y-10' : 'opacity-100 translate-y-0'
       }`}>
         <nav className="bg-white rounded-full px-12 py-3 shadow-2xl border border-gray-100/50 backdrop-blur-sm max-w-5xl w-full mx-4">
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center justify-between">
+          <div className="hidden lg:flex items-center justify-between w-full">
             {/* Logo */}
             <div 
               className="flex items-center cursor-pointer"
