@@ -69,7 +69,7 @@ export default function Header({ currentPage = 'home', onNavigate }: HeaderProps
       }`}>
         <nav className="bg-white rounded-full px-12 py-3 shadow-2xl border border-gray-100/50 backdrop-blur-sm max-w-5xl w-full mx-4">
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center justify-between w-164">
+          <div className="hidden lg:flex items-center justify-between w-264">
             {/* Logo */}
             <div 
               className="flex items-center cursor-pointer"
