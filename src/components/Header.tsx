@@ -43,7 +43,7 @@ export default function Header({ currentPage = 'home', onNavigate }: HeaderProps
     <>
       {/* Dynamic Island Style Header */}
       <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
-        <nav className="bg-white rounded-full px-32 py-4 shadow-2xl border border-gray-100/50 backdrop-blur-sm max-w-5xl w-full mx-4">
+        <nav className="bg-white rounded-full px-52 py-4 shadow-2xl border border-gray-100/50 backdrop-blur-sm max-w-5xl w-full mx-4">
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {/* Logo */}
@@ -87,7 +87,7 @@ export default function Header({ currentPage = 'home', onNavigate }: HeaderProps
               {user ? (
                 <button
                   onClick={handleAuthAction}
-                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-18 py-2 rounded-full font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-pink-500/25"
+                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-5 py-2 rounded-full font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-pink-500/25"
                 >
                   Sign Out
                 </button>
