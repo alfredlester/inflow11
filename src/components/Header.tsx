@@ -43,7 +43,7 @@ export default function Header({ currentPage = 'home', onNavigate }: HeaderProps
     <>
       {/* Dynamic Island Style Header */}
       <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
-        <nav className="bg-white rounded-full px-32 py-3 shadow-2xl border border-gray-100/50 backdrop-blur-sm max-w-5xl w-full mx-4">
+        <nav className="bg-white rounded-full px-42 py-3 shadow-2xl border border-gray-100/50 backdrop-blur-sm max-w-5xl w-full mx-4">
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {/* Logo */}
